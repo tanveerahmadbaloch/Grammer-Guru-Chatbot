@@ -18,7 +18,7 @@ if "messages" not in st.session_state.keys(): # Initialize the chat messages his
 @st.cache_resource(show_spinner=False)
 def load_data():
     with st.spinner(text="Loading and indexing the Documents...."):
-        reader = SimpleDirectoryReader(input_dir="./data", recursive=True)
+        reader = SimpleDirectoryReader(input_dir="./Grammar for Everyone Practical Tools for Learning and Teaching Grammar by Barbara Dykes (z-lib.org).pdf", recursive=True)
         docs = reader.load_data()
         embed_model = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
         llm = OpenAI(model = "gpt-3.5-turbo", temperature = "0.5", systemprompt="You are expert on the English Grammer and  your job is to provide the valid and relevant answers.Assuming all the queries related to English Grammer. Keep your answers based on facts do not hallucinate. Guide the users about essentials of english grammer.You must guide the user with example")
